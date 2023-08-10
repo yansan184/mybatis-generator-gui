@@ -94,6 +94,8 @@ public class MainUIController extends BaseFXController {
     @FXML
     private CheckBox useActualColumnNamesCheckbox;
     @FXML
+    private CheckBox dealWithConditionsCheckBox;
+    @FXML
     private CheckBox useExample;
     @FXML
     private CheckBox useDAOExtendStyle;
@@ -270,6 +272,7 @@ public class MainUIController extends BaseFXController {
 		offsetLimitCheckBox.setTooltip(new Tooltip("是否要生成分页查询代码"));
 		commentCheckBox.setTooltip(new Tooltip("使用数据库的列注释作为实体类字段名的Java注释 "));
 		useActualColumnNamesCheckbox.setTooltip(new Tooltip("是否使用数据库实际的列名作为实体类域的名称"));
+        dealWithConditionsCheckBox.setTooltip(new Tooltip("是否开启多条件查询"));
 		useTableNameAliasCheckbox.setTooltip(new Tooltip("在Mapper XML文件中表名使用别名，并且列全部使用as查询"));
 		overrideXML.setTooltip(new Tooltip("重新生成时把原XML文件覆盖，否则是追加"));
         useDAOExtendStyle.setTooltip(new Tooltip("将通用接口方法放在公共接口中，DAO接口留空"));
@@ -435,6 +438,7 @@ public class MainUIController extends BaseFXController {
         generatorConfig.setAnnotationDAO(annotationDAOCheckBox.isSelected());
         generatorConfig.setAnnotation(annotationCheckBox.isSelected());
         generatorConfig.setUseActualColumnNames(useActualColumnNamesCheckbox.isSelected());
+        generatorConfig.setDealWithConditions(dealWithConditionsCheckBox.isSelected());
         generatorConfig.setEncoding(encodingChoice.getValue());
         generatorConfig.setUseExample(useExample.isSelected());
         generatorConfig.setUseDAOExtendStyle(useDAOExtendStyle.isSelected());
@@ -467,6 +471,7 @@ public class MainUIController extends BaseFXController {
         annotationDAOCheckBox.setSelected(generatorConfig.isAnnotationDAO());
         annotationCheckBox.setSelected(generatorConfig.isAnnotation());
         useActualColumnNamesCheckbox.setSelected(generatorConfig.isUseActualColumnNames());
+        dealWithConditionsCheckBox.setSelected(generatorConfig.isDealWithConditions());
         encodingChoice.setValue(generatorConfig.getEncoding());
         useExample.setSelected(generatorConfig.isUseExample());
         useDAOExtendStyle.setSelected(generatorConfig.isUseDAOExtendStyle());

@@ -231,6 +231,19 @@ public class MybatisGeneratorBridge {
                 context.addPluginConfiguration(pluginConfiguration);
             }
         }
+        //selectionByConditions 插件
+        if(generatorConfig.isDealWithConditions()) {
+            if (DbType.MySQL_8.name().equals(dbType)
+                    || DbType.MySQL_8.name().equals(dbType) || DbType.PostgreSQL.name().equals(dbType)) {
+                PluginConfiguration pluginConfiguration = new PluginConfiguration();
+                pluginConfiguration.addProperty("type", "com.zzg.mybatis.generator.plugins.DealWithConditionsPlugin");
+                pluginConfiguration.setConfigurationType("com.zzg.mybatis.generator.plugins.DealWithConditionsPlugin");
+                context.addPluginConfiguration(pluginConfiguration);
+            }
+        }
+
+
+
         //repository 插件
         if(generatorConfig.isAnnotationDAO()) {
             if (DbType.MySQL.name().equals(dbType) || DbType.MySQL_8.name().equals(dbType)

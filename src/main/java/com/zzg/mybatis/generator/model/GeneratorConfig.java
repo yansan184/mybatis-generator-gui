@@ -68,7 +68,20 @@ public class GeneratorConfig {
 
     private boolean jsr310Support;
 
-    public boolean isJsr310Support() {
+	public boolean isDealWithConditions() {
+		return dealWithConditions;
+	}
+
+	public void setDealWithConditions(boolean dealWithConditions) {
+		this.dealWithConditions = dealWithConditions;
+	}
+
+	private boolean dealWithConditions;
+
+	public GeneratorConfig() {
+	}
+
+	public boolean isJsr310Support() {
         return jsr310Support;
     }
 
